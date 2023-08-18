@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 // ignore: camel_case_types
 class startScreen extends StatelessWidget {
-  const startScreen({super.key});
-
+  const startScreen(this.screenchanged, {super.key});
+  final void Function() screenchanged;
   @override
   Widget build(context) {
     return Center(
@@ -31,7 +31,9 @@ class startScreen extends StatelessWidget {
             height: 30,
           ),
           OutlinedButton.icon(
-            onPressed: () {},
+            onPressed: () {
+              screenchanged();
+            },
             style: OutlinedButton.styleFrom(
               foregroundColor: Colors.white,
               textStyle: const TextStyle(fontSize: 20),
@@ -43,9 +45,4 @@ class startScreen extends StatelessWidget {
       ),
     );
   }
-
-  void function() {
-    print("clicked");
-  }
 }
-
